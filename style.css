@@ -18,6 +18,24 @@ p {
   color: rgb(85, 85, 85);
 }
 
+/* Wisconsin Red Text */
+.wisconsin-red {
+  color: #c5050c !important;
+  font-weight: 500;
+}
+
+/* University Text */
+#description-text .wisconsin-red {
+  color: #c5050c !important;
+  font-weight: 500;
+}
+
+/* University Text */
+#description-text span {
+  color: #c5050c !important;
+  font-weight: 500;
+}
+
 /* TRANSITION */
 
 a,
@@ -96,12 +114,13 @@ a:hover {
 .menu-links {
   position: absolute;
   top: 100%;
-  right: 0%;
+  right: 0;
   background-color: white;
   width: fit-content;
   max-height: 0;
   overflow: hidden;
-  transition: all 0.3 ease-in-out;
+  transition: max-height 0.3s ease-in-out;
+  z-index: 1000;
 }
 
 .menu-links a {
@@ -119,7 +138,8 @@ a:hover {
 }
 
 .menu-links.open {
-  max-height: 300px;
+  max-height: 400px;
+  z-index: 1000;
 }
 
 .hamburger-icon.open span:first-child {
@@ -147,7 +167,7 @@ a:hover {
 /* SECTIONS */
 
 section {
-  padding-top: 4vh;
+  padding-top: 1vh;
   height: 96vh;
   margin: 0 10rem;
   box-sizing: border-box;
@@ -161,28 +181,274 @@ section {
 /* PROFILE SECTION */
 
 #profile {
-  display: flex;
-  justify-content: center;
-  gap: 5rem;
-  height: 80vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2rem;
+  height: 600px;
+  position: relative;
 }
 
 .section__pic-container {
   width: 400px;
   height: 400px;
-  border-radius: 50%; /* Circle */
+  border-radius: 50%;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #ddd;
-  flex-shrink: 0;
+  grid-column: 1;
+  grid-row: 1;
+  margin: 2rem;
 }
 
 .section__pic-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 18%; /* Show a little more hair */
+  object-position: center 18%;
   display: block;
+}
+
+.section__text {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.section__text__p1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.section__text__p2 {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Button Styles */
+.btn {
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-color-2 {
+  background-color: #000;
+  color: white;
+  width: 200px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-color-2:hover {
+  background-color: #333;
+  transform: scale(1.05);
+}
+
+.btn-color-1 {
+  background-color: #000;
+  color: white;
+  width: 200px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-color-1:hover {
+  transform: scale(1.05);
+}
+
+#socials-container {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
+}
+
+#socials-container .icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#socials-container .icon:hover {
+  transform: scale(1.2);
+}
+
+#socials-container .icon[src*="email"] {
+  transform: scale(1.25);
+}
+
+#socials-container .icon[src*="email"]:hover {
+  transform: scale(1.4);
+}
+
+/* EDITABLE CONTENT STYLES */
+#about {
+  height: 96vh;
+  min-height: fit-content;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.editable-content {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.editable-content textarea {
+  width: 100%;
+  max-width: 800px;
+  padding: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 200px;
+}
+
+.editable-content textarea:focus {
+  outline: none;
+  border-color: #666;
+}
+
+.editable-content button {
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.editable-content button:hover {
+  background-color: #555;
+}
+
+.about-subsection {
+  margin-left: 0;
+  flex: 1;
+}
+
+#skills-content {
+  list-style: none;
+  padding-left: 0;
+}
+
+#about .section__text {
+  position: relative;
+}
+
+#about .title {
+  position: static;
+  left: unset;
+  top: unset;
+  transform: none;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 2rem 0;
+  background: none;
+  z-index: auto;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.about-subsection.education,
+.about-subsection.skills {
+  width: 100%;
+  border: 1.5px solid black;
+  background: #f5f5f5;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.university-name {
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+.degree-detail {
+  margin-left: 1.5rem;
+  color: #444;
+  font-size: 1em;
+}
+
+.hs-name {
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+#experience-anchor,
+#projects-anchor,
+#contacts-anchor {
+  text-align: center;
+  margin: 3rem 0 2rem 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 900px) {
+  #profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 2rem 0;
+  }
+  .section__pic-container {
+    width: 250px;
+    height: 250px;
+    margin: 1rem 0;
+  }
+  .section__text {
+    grid-column: unset;
+    grid-row: unset;
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+  .btn-container {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  #socials-container {
+    position: static;
+    transform: none;
+    margin-top: 1.5rem;
+    justify-content: center;
+  }
 }

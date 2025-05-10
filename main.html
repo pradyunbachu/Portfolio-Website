@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pradyun Bachu - Main</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mediaqueries.css" />
+  </head>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo">Pradyun Bachu</div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about-anchor">About</a></li>
+          <li><a href="#projects-anchor">Projects</a></li>
+          <li><a href="#contacts-anchor">Contacts</a></li>
+        </ul>
+      </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">Pradyun Bachu</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+          <li><a href="#about-anchor" onclick="toggleMenu()">About</a></li>
+          <li>
+            <a href="#projects-anchor" onclick="toggleMenu()">Projects</a>
+          </li>
+          <li>
+            <a href="#contacts-anchor" onclick="toggleMenu()">Contacts</a>
+          </li>
+        </div>
+      </div>
+    </nav>
+
+    <section id="about" class="section">
+      <a id="about-anchor"></a>
+      <div class="section__text">
+        <h1 class="title">About Me!</h1>
+        <div class="editable-content">
+          <div class="about-subsection education">
+            <h2>Education</h2>
+            <div id="education-content">
+              <div class="university-name">
+                The University of Wisconsin - Madison
+              </div>
+              <div class="degree-detail">
+                B.S. Computer Science &amp; Economics with Math Emphasis (2028)
+              </div>
+              <div class="hs-name">The Peddie School</div>
+              <div class="degree-detail">High School Diploma</div>
+            </div>
+          </div>
+          <div class="about-subsection skills">
+            <h2>Skills</h2>
+            <ul id="skills-content">
+              <li>Java</li>
+              <li>Python</li>
+              <li>JavaScript</li>
+              <li>HTML &amp; CSS</li>
+              <li>Git &amp; GitHub</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <h1 id="projects-anchor">Projects</h1>
+    <h1 id="contacts-anchor">Contacts</h1>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
+    <title>Pradyun Bachu</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
   </head>
@@ -12,10 +12,10 @@
       <div class="logo">Pradyun Bachu</div>
       <div>
         <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contacts">Contacts</a></li>
+          <li><a href="#" onclick="showSection('profile')">Home</a></li>
+          <li><a href="main.html#about-anchor">About</a></li>
+          <li><a href="main.html#projects-anchor">Projects</a></li>
+          <li><a href="main.html#contacts-anchor">Contacts</a></li>
         </ul>
       </div>
     </nav>
@@ -28,32 +28,42 @@
           <span></span>
         </div>
         <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contacts" onclick="toggleMenu()">Contacts</a></li>
+          <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+          <li>
+            <a href="main.html#about-anchor" onclick="toggleMenu()">About</a>
+          </li>
+          <li>
+            <a href="main.html#projects-anchor" onclick="toggleMenu()"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a href="main.html#contacts-anchor" onclick="toggleMenu()"
+              >Contacts</a
+            >
+          </li>
         </div>
       </div>
     </nav>
-    <section id="profile">
+
+    <!-- Profile Section -->
+    <section id="profile" class="section">
       <div class="section__pic-container">
         <img
           src="./assets/profile-pic.png"
           alt="Pradyun Bachu Profile Picture" />
       </div>
       <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Pradyun</h1>
-        <p class="section__text__p2">
-          Undergraduate Student at The University of Wisconsin - Madison
-        </p>
+        <p id="hello-text" class="section__text__p1"></p>
+        <h1 id="name-text" class="title"></h1>
+        <p id="description-text" class="section__text__p2"></p>
         <div class="btn-container">
           <button
             class="btn btn-color-2"
             onclick="window.open('./assets/Pradyun_Bachu_Resume_2024 (3).pdf')">
             Download CV
           </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
+          <button class="btn btn-color-1" onclick="showSection('contacts')">
             Contact Info
           </button>
         </div>
@@ -68,9 +78,15 @@
             alt="My Github Profile"
             class="icon"
             onclick="location.href='https://github.com/pradyunbachu'" />
+          <img
+            src="./assets/email.png"
+            alt="Email Pradyun Bachu"
+            class="icon"
+            onclick="window.location.href='mailto:pradyun.bachu@gmail.com'" />
         </div>
       </div>
     </section>
+
     <script src="script.js"></script>
   </body>
 </html>
