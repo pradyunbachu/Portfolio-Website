@@ -629,3 +629,11 @@ section {
   background: #333;
   color: #fff;
 }
+
+.about-subsection.projects-box .project-item:nth-child(3) {
+  background: #f5f5f5;
+  color: #111;
+}
+.about-subsection.projects-box .project-item:nth-child(3):hover {
+  background: #e0e0e0;
+}

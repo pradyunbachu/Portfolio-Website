@@ -150,3 +150,10 @@ function openPortfolioPopup() {
 function closePortfolioPopup() {
   document.getElementById("portfolio-popup").classList.remove("open");
 }
+
+function openEconPopup() {
+  document.getElementById("econ-popup").classList.add("open");
+}
+function closeEconPopup() {
+  document.getElementById("econ-popup").classList.remove("open");
+}
