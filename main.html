@@ -66,13 +66,79 @@
               <li>JavaScript</li>
               <li>HTML &amp; CSS</li>
               <li>Git &amp; GitHub</li>
+              <li>Finance &amp; Marketing</li>
+              <li>CAD &amp; CAM</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
     <h1 id="projects-anchor">Projects</h1>
+    <div class="about-subsection projects-box">
+      <div class="project-item" onclick="openProjectPopup()">
+        Kitchen Pantry
+      </div>
+      <div class="project-item" onclick="openPortfolioPopup()">
+        Portfolio Website
+      </div>
+    </div>
+
+    <!-- Kitchen Pantry Popup Modal -->
+    <div id="project-popup" class="project-popup">
+      <div class="project-popup-content">
+        <span class="close-popup" onclick="closeProjectPopup()">&times;</span>
+        <h2>Kitchen Pantry</h2>
+        <div style="margin-top: 1rem; color: #444">
+          This is my Kitchen Pantry box. It allows users to edit their kitchen
+          pantry to see what they have and don't have. Users can edit the pantry
+          as they wish.
+        </div>
+        <p style="margin-top: 1.2rem">
+          <a
+            href="https://github.com/pradyunbachu/KitchenPantry"
+            target="_blank">
+            View Kitchen Pantry on GitHub
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Portfolio Website Popup Modal -->
+    <div id="portfolio-popup" class="project-popup">
+      <div class="project-popup-content">
+        <span class="close-popup" onclick="closePortfolioPopup()">&times;</span>
+        <h2>Portfolio Website</h2>
+        <div style="margin-top: 1rem; color: #444">
+          This is my Portfolio website where you can find everything about me!
+        </div>
+        <p style="margin-top: 1.2rem">
+          <a
+            href="https://github.com/pradyunbachu/Portfolio-Website"
+            target="_blank">
+            View Portfolio Website on GitHub
+          </a>
+        </p>
+      </div>
+    </div>
+
     <h1 id="contacts-anchor">Contacts</h1>
+    <div class="contacts-buttons">
+      <a href="mailto:pradyun.bachu@gmail.com" class="contact-btn email-btn"
+        >Email</a
+      >
+      <a
+        href="https://github.com/pradyunbachu"
+        target="_blank"
+        class="contact-btn github-btn"
+        >GitHub</a
+      >
+      <a
+        href="https://www.linkedin.com/in/pradyun-bachu/"
+        target="_blank"
+        class="contact-btn linkedin-btn"
+        >LinkedIn</a
+      >
+    </div>
 
     <script src="script.js"></script>
   </body>

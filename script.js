@@ -123,3 +123,30 @@ document.addEventListener("DOMContentLoaded", function () {
   // Start typing animations on page load
   startProfileTypingAnimation();
 });
+
+function openProjectPopup() {
+  document.getElementById("project-popup").classList.add("open");
+  // Load saved description
+  const desc = localStorage.getItem("kitchen-pantry-desc") || "";
+  document.getElementById("kitchen-pantry-desc").value = desc;
+  document.getElementById("saved-desc").textContent = desc
+    ? "Saved: " + desc
+    : "";
+}
+function closeProjectPopup() {
+  document.getElementById("project-popup").classList.remove("open");
+}
+function saveProjectDescription() {
+  const desc = document.getElementById("kitchen-pantry-desc").value;
+  localStorage.setItem("kitchen-pantry-desc", desc);
+  document.getElementById("saved-desc").textContent = desc
+    ? "Saved: " + desc
+    : "";
+}
+
+function openPortfolioPopup() {
+  document.getElementById("portfolio-popup").classList.add("open");
+}
+function closePortfolioPopup() {
+  document.getElementById("portfolio-popup").classList.remove("open");
+}
