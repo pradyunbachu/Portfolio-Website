@@ -122,6 +122,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Start typing animations on page load
   startProfileTypingAnimation();
+
+  // Add event listeners to close popups when clicking outside the content
+  addPopupOutsideClickClose("project-popup");
+  addPopupOutsideClickClose("portfolio-popup");
+  addPopupOutsideClickClose("econ-popup");
 });
 
 function openProjectPopup() {
@@ -156,4 +161,15 @@ function openEconPopup() {
 }
 function closeEconPopup() {
   document.getElementById("econ-popup").classList.remove("open");
+}
+
+// Add event listeners to close popups when clicking outside the content
+function addPopupOutsideClickClose(popupId) {
+  const popup = document.getElementById(popupId);
+  if (!popup) return;
+  popup.addEventListener("mousedown", function (event) {
+    if (event.target === popup) {
+      popup.classList.remove("open");
+    }
+  });
 }
