@@ -289,8 +289,8 @@ section {
 }
 
 #socials-container .icon {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
   display: block;
   box-sizing: border-box;
@@ -299,7 +299,7 @@ section {
   background: #fff;
   border-radius: 50%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-  padding: 6px;
+  padding: 0;
   margin-bottom: 0 !important;
 }
 
@@ -313,8 +313,17 @@ section {
   height: 60px;
   margin-bottom: 0 !important;
   background: #fff;
-  padding: 2px;
-  transform: scale(1.25);
+  padding: 0;
+  transform: scale(1.45);
+}
+
+#socials-container .icon[alt="Email Pradyun Bachu"] {
+  padding: 10px;
+}
+
+#socials-container .icon[alt="My Linkedin Profile"],
+#socials-container .icon[alt="My Github Profile"] {
+  padding: 10px;
 }
 
 /* EDITABLE CONTENT STYLES */
