@@ -34,6 +34,9 @@ function saveContent(section) {
   alert("Content saved successfully!");
 }
 
+// Typing animation timeouts tracker
+let typingTimeouts = [];
+
 // Typing animation function
 function typeText(element, text, speed = 50, isHTML = false) {
   let i = 0;
@@ -43,7 +46,7 @@ function typeText(element, text, speed = 50, isHTML = false) {
     if (i < text.length) {
       element.innerHTML += text.charAt(i);
       i++;
-      setTimeout(type, speed);
+      typingTimeouts.push(setTimeout(type, speed));
     }
   }
 
@@ -61,11 +64,30 @@ function typeTextWithColor(element, text, color, speed = 50) {
     if (i < text.length) {
       span.textContent += text.charAt(i);
       i++;
-      setTimeout(type, speed);
+      typingTimeouts.push(setTimeout(type, speed));
     }
   }
 
   type();
+}
+
+// Function to clear all typing animation timeouts
+function clearTypingTimeouts() {
+  typingTimeouts.forEach((timeout) => clearTimeout(timeout));
+  typingTimeouts = [];
+}
+
+// Function to set the profile text to its final state
+function setProfileTextFinal() {
+  const helloText = document.getElementById("hello-text");
+  const nameText = document.getElementById("name-text");
+  const descriptionText = document.getElementById("description-text");
+  if (helloText && nameText && descriptionText) {
+    helloText.innerHTML = "Hello, I'm";
+    nameText.innerHTML = "Pradyun";
+    descriptionText.innerHTML =
+      'Undergraduate Student at The <span class="wisconsin-red">University of Wisconsin - Madison</span>';
+  }
 }
 
 // Function to start the profile typing animation
@@ -127,6 +149,20 @@ document.addEventListener("DOMContentLoaded", function () {
   addPopupOutsideClickClose("project-popup");
   addPopupOutsideClickClose("portfolio-popup");
   addPopupOutsideClickClose("econ-popup");
+
+  // Add listeners to stop typing animation on button click
+  const cvBtn = document.querySelector('button[onclick*="Resume_Updated"]');
+  const contactBtn = document.querySelector(
+    'button[onclick*="contacts-anchor"]'
+  );
+  [cvBtn, contactBtn].forEach((btn) => {
+    if (btn) {
+      btn.addEventListener("click", () => {
+        clearTypingTimeouts();
+        setProfileTextFinal();
+      });
+    }
+  });
 });
 
 function openProjectPopup() {
