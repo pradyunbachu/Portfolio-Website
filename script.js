@@ -150,18 +150,13 @@ document.addEventListener("DOMContentLoaded", function () {
   addPopupOutsideClickClose("portfolio-popup");
   addPopupOutsideClickClose("econ-popup");
 
-  // Add listeners to stop typing animation on button click
-  const cvBtn = document.querySelector('button[onclick*="Resume_Updated"]');
-  const contactBtn = document.querySelector(
-    'button[onclick*="contacts-anchor"]'
-  );
-  [cvBtn, contactBtn].forEach((btn) => {
-    if (btn) {
-      btn.addEventListener("click", () => {
-        clearTypingTimeouts();
-        setProfileTextFinal();
-      });
-    }
+  // Add listeners to stop typing animation on any button click
+  const allButtons = document.querySelectorAll("button");
+  allButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      clearTypingTimeouts();
+      setProfileTextFinal();
+    });
   });
 });
 
