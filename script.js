@@ -17,14 +17,19 @@ function showSection(sectionId) {
   if (selectedSection) {
     if (sectionId === "profile") {
       selectedSection.style.display = "grid";
+      // Fix: Always clear typing and set text to empty before starting animation
+      clearTypingTimeouts();
+      const helloText = document.getElementById("hello-text");
+      const nameText = document.getElementById("name-text");
+      const descriptionText = document.getElementById("description-text");
+      if (helloText) helloText.innerHTML = "";
+      if (nameText) nameText.innerHTML = "";
+      if (descriptionText) descriptionText.innerHTML = "";
+      // Start the animation again
+      startProfileTypingAnimation();
     } else {
       selectedSection.style.display = "flex";
     }
-  }
-
-  // If Home/profile is shown, restart the typing animation
-  if (sectionId === "profile") {
-    startProfileTypingAnimation();
   }
 }
 
@@ -53,24 +58,6 @@ function typeText(element, text, speed = 50, isHTML = false) {
   type();
 }
 
-// Function to type text with color
-function typeTextWithColor(element, text, color, speed = 50) {
-  let i = 0;
-  const span = document.createElement("span");
-  span.className = "wisconsin-red";
-  element.appendChild(span);
-
-  function type() {
-    if (i < text.length) {
-      span.textContent += text.charAt(i);
-      i++;
-      typingTimeouts.push(setTimeout(type, speed));
-    }
-  }
-
-  type();
-}
-
 // Function to clear all typing animation timeouts
 function clearTypingTimeouts() {
   typingTimeouts.forEach((timeout) => clearTimeout(timeout));
@@ -86,7 +73,7 @@ function setProfileTextFinal() {
     helloText.innerHTML = "Hello, I'm";
     nameText.innerHTML = "Pradyun";
     descriptionText.innerHTML =
-      'Undergraduate Student at The <span class="wisconsin-red">University of Wisconsin - Madison</span>';
+      "CS and Economics Major at The University of Wisconsin - Madison";
   }
 }
 
@@ -102,29 +89,14 @@ function startProfileTypingAnimation() {
     nameText.innerHTML = "";
     descriptionText.innerHTML = "";
 
-    // Start with "Hello, I'm"
+    // Animate all lines at the same time
     typeText(helloText, "Hello, I'm", 100);
-
-    // After "Hello, I'm" is done, start typing the name
-    setTimeout(() => {
-      typeText(nameText, "Pradyun", 100);
-
-      // After name is done, start typing the description
-      setTimeout(() => {
-        // First type "Undergraduate Student at The"
-        typeText(descriptionText, "Undergraduate Student at The ", 50);
-
-        // Then type the university name in red
-        setTimeout(() => {
-          typeTextWithColor(
-            descriptionText,
-            "University of Wisconsin - Madison",
-            "#C5050C",
-            50
-          );
-        }, 1500);
-      }, 1000);
-    }, 1000);
+    typeText(nameText, "Pradyun", 100);
+    typeText(
+      descriptionText,
+      "CS and Economics Major at The University of Wisconsin - Madison",
+      50
+    );
   }
 }
 
