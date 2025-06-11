@@ -76,14 +76,36 @@
     </section>
     <h1 id="projects-anchor">Projects</h1>
     <div class="about-subsection projects-box">
-      <div class="project-item" onclick="openProjectPopup()">
-        Kitchen Pantry
-      </div>
+      <div class="project-item" onclick="openEconPopup()">UN NDC AI Model</div>
       <div class="project-item" onclick="openPortfolioPopup()">
         Portfolio Website
       </div>
-      <div class="project-item" onclick="openEconPopup()">
-        Economics Research
+      <div class="project-item" onclick="openProjectPopup()">
+        Kitchen Pantry
+      </div>
+    </div>
+
+    <!-- UN NDC AI Model Popup Modal -->
+    <div id="econ-popup" class="project-popup">
+      <div class="project-popup-content">
+        <span class="close-popup" onclick="closeEconPopup()">&times;</span>
+        <h2>UN NDC AI Model</h2>
+        <div style="margin-top: 1rem; color: #e0e0e0">
+          <p>
+            A machine learning model developed to analyze and predict Nationally
+            Determined Contributions (NDCs) under the United Nations Framework
+            Convention on Climate Change. This project combines data science and
+            environmental economics to help understand and predict climate
+            action commitments.
+          </p>
+          <p style="margin-top: 1.2rem">
+            <a
+              href="https://github.com/pradyunbachu/UN_NDCAIModel"
+              target="_blank">
+              View UN NDC AI Model on GitHub
+            </a>
+          </p>
+        </div>
       </div>
     </div>
 
@@ -122,15 +144,6 @@
             View Portfolio Website on GitHub
           </a>
         </p>
-      </div>
-    </div>
-
-    <!-- Economics Research Popup Modal -->
-    <div id="econ-popup" class="project-popup">
-      <div class="project-popup-content">
-        <span class="close-popup" onclick="closeEconPopup()">&times;</span>
-        <h2>Economics Research</h2>
-        <div style="margin-top: 1rem; color: #e0e0e0">In Progress</div>
       </div>
     </div>
 

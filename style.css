@@ -595,23 +595,44 @@ section {
   margin-bottom: 1.2rem;
 }
 
-.project-item {
-  cursor: pointer;
-  font-size: 1.3rem;
-  font-weight: 500;
-  padding: 1rem;
-  border-radius: 8px;
+.about-subsection.projects-box .project-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1.2rem 2.5rem;
+  border-radius: 1.2rem;
+  text-decoration: none;
+  color: #000000;
+  background: #ffffff;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  margin-bottom: 1rem;
+  margin: 1rem auto;
+  width: 90%;
+}
+
+.about-subsection.projects-box .project-item:hover {
+  background: #c5050c;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Remove the individual color rules since we want all buttons to be the same */
+.about-subsection.projects-box .project-item:nth-child(1),
+.about-subsection.projects-box .project-item:nth-child(2),
+.about-subsection.projects-box .project-item:nth-child(3) {
   background: #ffffff;
   color: #000000;
-  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
-  text-align: center;
-  margin: 0.5rem 0;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
-.project-item:hover {
+
+.about-subsection.projects-box .project-item:nth-child(1):hover,
+.about-subsection.projects-box .project-item:nth-child(2):hover,
+.about-subsection.projects-box .project-item:nth-child(3):hover {
   background: #c5050c;
   color: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .project-popup {
@@ -647,15 +668,4 @@ section {
   cursor: pointer;
   color: #c5050c;
   font-weight: bold;
-}
-
-.about-subsection.projects-box .project-item:nth-child(2),
-.about-subsection.projects-box .project-item:nth-child(3) {
-  background: #ffffff;
-  color: #000000;
-}
-.about-subsection.projects-box .project-item:nth-child(2):hover,
-.about-subsection.projects-box .project-item:nth-child(3):hover {
-  background: #c5050c;
-  color: #ffffff;
 }
