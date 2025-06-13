@@ -219,6 +219,8 @@ section {
   flex-direction: column;
   justify-content: center;
   padding: 2rem;
+  align-items: center;
+  text-align: center;
 }
 
 .section__text__p1 {
@@ -280,7 +282,7 @@ section {
 
 #socials-container {
   position: absolute;
-  bottom: 2rem;
+  bottom: -20rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -326,6 +328,24 @@ section {
 }
 
 /* EDITABLE CONTENT STYLES */
+#about,
+#projects,
+#contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#about {
+  min-height: fit-content;
+  margin-top: 40rem;
+}
+#projects,
+#contacts {
+  margin-top: 0;
+}
+
 #about {
   min-height: fit-content;
   display: flex;
@@ -334,11 +354,13 @@ section {
 }
 
 .editable-content {
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2rem;
-  align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto 0 auto;
 }
 
 .editable-content textarea {
@@ -376,8 +398,13 @@ section {
 }
 
 .about-subsection {
-  margin-left: 0;
-  flex: 1;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 1.5rem auto;
+  border: 1.5px solid #333;
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
 }
 
 #skills-content {
@@ -404,16 +431,6 @@ section {
   box-shadow: none;
   font-size: 2.5rem;
   font-weight: 700;
-}
-
-.about-subsection.education,
-.about-subsection.skills {
-  width: 100%;
-  border: 1.5px solid #333;
-  background: #1a1a1a;
-  padding: 1.5rem 1.5rem 1rem 1.5rem;
-  border-radius: 12px;
-  margin-bottom: 1.5rem;
 }
 
 .university-name {
@@ -580,19 +597,6 @@ section {
   min-height: 100px;
 }
 
-.about-subsection.skills {
-  margin-bottom: 1.2rem;
-}
-
-#projects-anchor {
-  margin-top: 1.2rem;
-  margin-bottom: 1.2rem;
-}
-
-.about-subsection.projects-box {
-  margin-bottom: 1.2rem;
-}
-
 .about-subsection.projects-box .project-item {
   display: flex;
   align-items: center;
@@ -681,5 +685,192 @@ section {
     padding: 0.9rem 0.5rem;
     margin: 0.7rem auto;
     border-radius: 0.9rem;
+  }
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.skill-card {
+  background: #fff;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 0.5rem;
+}
+
+.skill-card i {
+  font-size: 1.3rem;
+  color: #222;
+  margin-bottom: 0.3rem;
+}
+
+.skill-card span {
+  color: #222;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-top: 0.1rem;
+  text-align: center;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px) scale(1.07);
+}
+
+.skills-category h3 {
+  color: #c5050c;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.skills-category {
+  margin-bottom: 2.5rem;
+}
+
+/* --- New About Me Section Styles --- */
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.about-card {
+  background: #181818;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  padding: 2.2rem 2.5rem 1.5rem 2.5rem;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-title {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+.about-edu-details {
+  color: #fff;
+  text-align: center;
+}
+
+.university-name,
+.hs-name {
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-top: 0.5rem;
+}
+
+.degree-detail {
+  color: #b3b3b3;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.skills-card {
+  margin-top: 0;
+}
+
+.skills-categories {
+  width: 100%;
+}
+
+.skills-category {
+  margin-bottom: 1.5rem;
+}
+
+.skills-subtitle {
+  color: #c5050c;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.7rem;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+
+.skill-card {
+  background: #fff;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 0.5rem;
+}
+
+.skill-card i {
+  font-size: 1.3rem;
+  color: #222;
+  margin-bottom: 0.3rem;
+}
+
+.skill-card span {
+  color: #222;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-top: 0.1rem;
+  text-align: center;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px) scale(1.07);
+}
+
+@media (max-width: 800px) {
+  .about-card {
+    max-width: 98vw;
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  }
+  .about-container {
+    gap: 1.2rem;
+  }
+  .skills-grid {
+    gap: 1rem;
+  }
+  .skill-card {
+    width: 80px;
+    height: 80px;
+  }
+  .skill-card i {
+    font-size: 1rem;
+  }
+  .skill-card span {
+    font-size: 0.6rem;
   }
 }
