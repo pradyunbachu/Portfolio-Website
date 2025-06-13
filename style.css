@@ -853,24 +853,62 @@ section {
 }
 
 @media (max-width: 800px) {
-  .about-card {
-    max-width: 98vw;
-    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  section {
+    margin: 0 0.5rem;
+    padding-top: 0.5rem;
   }
   .about-container {
-    gap: 1.2rem;
+    gap: 1rem;
+    width: 100%;
+  }
+  .about-card {
+    max-width: 100vw;
+    padding: 0.7rem 0.2rem 0.7rem 0.2rem;
+    border-radius: 10px;
+  }
+  .about-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.7rem;
   }
   .skills-grid {
-    gap: 1rem;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
   }
   .skill-card {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.2rem;
   }
   .skill-card i {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
   .skill-card span {
-    font-size: 0.6rem;
+    font-size: 0.45rem;
+  }
+  .skills-category {
+    margin-bottom: 0.7rem;
+  }
+  .skills-subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+  .university-name,
+  .hs-name {
+    font-size: 0.8rem;
+  }
+  .degree-detail {
+    font-size: 0.7rem;
+  }
+  .title {
+    font-size: 1.3rem;
+  }
+  .about-edu-details {
+    font-size: 0.8rem;
+  }
+  .about-card {
+    box-shadow: none;
+  }
+  .about-container {
+    padding: 0;
   }
 }
