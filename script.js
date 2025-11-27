@@ -71,7 +71,7 @@ function setProfileTextFinal() {
   const descriptionText = document.getElementById("description-text");
   if (helloText && nameText && descriptionText) {
     helloText.innerHTML = "Hello, I'm";
-    nameText.innerHTML = "Pradyun";
+    nameText.innerHTML = "Pradyun Bachu";
     descriptionText.innerHTML =
       "CS and Economics Major at The University of Wisconsin - Madison";
   }
@@ -91,7 +91,7 @@ function startProfileTypingAnimation() {
 
     // Animate all lines at the same time
     typeText(helloText, "Hello, I'm", 100);
-    typeText(nameText, "Pradyun", 100);
+    typeText(nameText, "Pradyun Bachu", 100);
     typeText(
       descriptionText,
       "CS and Economics Major at The University of Wisconsin - Madison",
@@ -121,6 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
   addPopupOutsideClickClose("project-popup");
   addPopupOutsideClickClose("portfolio-popup");
   addPopupOutsideClickClose("econ-popup");
+  addPopupOutsideClickClose("redline-popup");
 
   // Add listeners to stop typing animation on any button click
   const allButtons = document.querySelectorAll("button");
@@ -166,6 +167,13 @@ function closeEconPopup() {
   document.getElementById("econ-popup").classList.remove("open");
 }
 
+function openRedlinePopup() {
+  document.getElementById("redline-popup").classList.add("open");
+}
+function closeRedlinePopup() {
+  document.getElementById("redline-popup").classList.remove("open");
+}
+
 // Add event listeners to close popups when clicking outside the content
 function addPopupOutsideClickClose(popupId) {
   const popup = document.getElementById(popupId);
@@ -173,6 +181,29 @@ function addPopupOutsideClickClose(popupId) {
   popup.addEventListener("mousedown", function (event) {
     if (event.target === popup) {
       popup.classList.remove("open");
+    }
+  });
+}
+
+function showCategory(categoryId) {
+  // Hide all categories
+  const categories = document.querySelectorAll(".skills-category");
+  categories.forEach((cat) => {
+    cat.classList.remove("active");
+  });
+
+  // Show selected category
+  const selectedCategory = document.getElementById(categoryId);
+  if (selectedCategory) {
+    selectedCategory.classList.add("active");
+  }
+
+  // Update active button
+  const buttons = document.querySelectorAll(".category-circle");
+  buttons.forEach((btn) => {
+    btn.classList.remove("active");
+    if (btn.getAttribute("data-category") === categoryId) {
+      btn.classList.add("active");
     }
   });
 }
