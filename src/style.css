@@ -70,3 +70,18 @@ body {
   transform: translateY(20px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+
+.skill-fade-in {
+  animation: skillFadeIn 0.4s ease-out forwards;
+}
+
+@keyframes skillFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

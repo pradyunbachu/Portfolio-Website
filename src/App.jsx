@@ -822,6 +822,7 @@ function App() {
               }}>
               {openSkillCategory === "languages" && (
                 <div
+                  className="skill-fade-in"
                   style={{
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "16px",
@@ -838,6 +839,7 @@ function App() {
               )}
               {openSkillCategory === "frameworks" && (
                 <div
+                  className="skill-fade-in"
                   style={{
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "16px",
@@ -854,6 +856,7 @@ function App() {
               )}
               {openSkillCategory === "tools" && (
                 <div
+                  className="skill-fade-in"
                   style={{
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "16px",
@@ -873,6 +876,7 @@ function App() {
               )}
               {openSkillCategory === "libraries" && (
                 <div
+                  className="skill-fade-in"
                   style={{
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "16px",
@@ -889,6 +893,7 @@ function App() {
               )}
               {openSkillCategory === "interests" && (
                 <div
+                  className="skill-fade-in"
                   style={{
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "16px",
