@@ -955,7 +955,7 @@ function App() {
                 gap: "20px",
                 width: "100%",
               }}>
-              {/* NFL Game Predictor Box */}
+              {/* Risk Dashboard Analyzer Box */}
               <div
                 style={{
                   fontFamily: "Montserrat, sans-serif",
@@ -975,7 +975,7 @@ function App() {
                     color: "#000000",
                     textAlign: "center",
                   }}>
-                  NFL Game Predictor
+                  Risk Dashboard Analyzer
                 </div>
                 <div
                   style={{
@@ -989,11 +989,25 @@ function App() {
                 <div
                   style={{
                     fontSize: "12px",
+                    fontWeight: 400,
+                    color: "#000000",
+                    lineHeight: "1.6",
+                    textAlign: "left",
+                  }}>
+                  A full-stack analytics tool that pulls historical market data,
+                  stores it in a PostgreSQL database, and calculates key risk
+                  metrics used by financial institutions. Users can build custom
+                  portfolios and visualize how their holdings might perform
+                  under different market conditions.
+                </div>
+                <div
+                  style={{
+                    fontSize: "12px",
                     fontWeight: 600,
                     color: "#000000",
                     marginTop: "5px",
                   }}>
-                  Technologies:
+                  Tech Stack:
                 </div>
                 <div
                   style={{
@@ -1001,7 +1015,28 @@ function App() {
                     fontWeight: 400,
                     color: "#666666",
                   }}>
-                  Python, Pandas, NumPy, Matplotlib
+                  Python, PostgreSQL, SQL, Pandas, Streamlit
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "10px",
+                    marginTop: "10px",
+                  }}>
+                  <a
+                    href="https://github.com/pradyunbachu/Risk-Dashboard-Analyzer"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      fontFamily: "Montserrat, sans-serif",
+                      fontSize: "12px",
+                      color: "#000000",
+                      textDecoration: "underline",
+                      cursor: "pointer",
+                    }}>
+                    GitHub
+                  </a>
                 </div>
               </div>
 
@@ -1048,7 +1083,7 @@ function App() {
                     color: "#000000",
                     marginTop: "5px",
                   }}>
-                  Technologies:
+                  Tech Stack:
                 </div>
                 <div
                   style={{
@@ -1094,7 +1129,7 @@ function App() {
                 </div>
               </div>
 
-              {/* Poker Game Box */}
+              {/* Shadows & Suits Box */}
               <div
                 style={{
                   fontFamily: "Montserrat, sans-serif",
@@ -1134,7 +1169,7 @@ function App() {
                     color: "#000000",
                     marginTop: "5px",
                   }}>
-                  Technologies:
+                  Tech Stack:
                 </div>
                 <div
                   style={{
@@ -1177,6 +1212,56 @@ function App() {
                     }}>
                     Live Demo
                   </a>
+                </div>
+              </div>
+
+              {/* NFL Game Predictor Box */}
+              <div
+                style={{
+                  fontFamily: "Montserrat, sans-serif",
+                  backgroundColor: "#ffffff",
+                  border: "2px solid #000000",
+                  borderRadius: "4px",
+                  padding: "20px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "15px",
+                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                }}>
+                <div
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: 700,
+                    color: "#000000",
+                    textAlign: "center",
+                  }}>
+                  NFL Game Predictor
+                </div>
+                <div
+                  style={{
+                    fontSize: "12px",
+                    fontStyle: "italic",
+                    color: "#666666",
+                    textAlign: "center",
+                  }}>
+                  COMING SOON
+                </div>
+                <div
+                  style={{
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    color: "#000000",
+                    marginTop: "5px",
+                  }}>
+                  Tech Stack:
+                </div>
+                <div
+                  style={{
+                    fontSize: "12px",
+                    fontWeight: 400,
+                    color: "#666666",
+                  }}>
+                  Python, Pandas, NumPy, Matplotlib
                 </div>
               </div>
             </div>
