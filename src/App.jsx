@@ -1,8 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 function App() {
-  https://pradyunbachu.github.io/Portfolio-Website/
   const [openSkillCategory, setOpenSkillCategory] = useState(null);
+  const [visibleSections, setVisibleSections] = useState(new Set());
+
+  const aboutRef = useRef(null);
+  const timelineRef = useRef(null);
+  const skillsRef = useRef(null);
+  const projectsRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleSections((prev) => new Set(prev).add(entry.target.id));
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      }
+    );
+
+    const sections = [
+      aboutRef.current,
+      timelineRef.current,
+      skillsRef.current,
+      projectsRef.current,
+    ];
+    sections.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
+
   return (
     <div
       style={{
@@ -14,6 +52,7 @@ function App() {
       }}>
       {/* Landing Page Section */}
       <div
+        className="fade-in-up"
         style={{
           width: "100%",
           height: "100vh",
@@ -31,6 +70,7 @@ function App() {
             gap: "15px",
           }}>
           <div
+            className="fade-in-up"
             style={{
               fontFamily: "Montserrat, sans-serif",
               fontSize: "64px",
@@ -41,6 +81,7 @@ function App() {
             Pradyun Bachu
           </div>
           <div
+            className="fade-in-delay-1"
             style={{
               fontFamily: "Montserrat, sans-serif",
               fontSize: "24px",
@@ -54,6 +95,7 @@ function App() {
 
         {/* Social Icons and Resume Button - Top Right */}
         <div
+          className="fade-in-delay-2"
           style={{
             position: "absolute",
             top: "20px",
@@ -63,7 +105,7 @@ function App() {
             alignItems: "center",
           }}>
           <a
-            href="/Bachu_Pradyun_Resume (1).pdf"
+            href={`${import.meta.env.BASE_URL}PradyunBachu_Resume.pdf`}
             target="_blank"
             rel="noopener noreferrer"
             style={{
@@ -162,6 +204,11 @@ function App() {
         }}>
         {/* About Me Section */}
         <div
+          ref={aboutRef}
+          id="about"
+          className={
+            visibleSections.has("about") ? "fade-in-up" : "scroll-fade-hidden"
+          }
           style={{
             display: "flex",
             flexDirection: "column",
@@ -196,6 +243,13 @@ function App() {
 
         {/* Timeline Section */}
         <div
+          ref={timelineRef}
+          id="timeline"
+          className={
+            visibleSections.has("timeline")
+              ? "fade-in-up"
+              : "scroll-fade-hidden"
+          }
           style={{
             display: "flex",
             flexDirection: "column",
@@ -552,6 +606,11 @@ function App() {
 
         {/* Skills Section - Centered */}
         <div
+          ref={skillsRef}
+          id="skills"
+          className={
+            visibleSections.has("skills") ? "fade-in-up" : "scroll-fade-hidden"
+          }
           style={{
             display: "flex",
             flexDirection: "column",
@@ -850,6 +909,13 @@ function App() {
 
         {/* Projects Section - Box Style */}
         <div
+          ref={projectsRef}
+          id="projects"
+          className={
+            visibleSections.has("projects")
+              ? "fade-in-up"
+              : "scroll-fade-hidden"
+          }
           style={{
             display: "flex",
             flexDirection: "column",
