@@ -1267,6 +1267,26 @@ function App() {
             </div>
           </div>
         </div>
+
+        {/* Footer */}
+        <div
+          style={{
+            width: "100%",
+            padding: "40px 20px",
+            textAlign: "center",
+            borderTop: "1px solid #e0e0e0",
+            marginTop: "60px",
+          }}>
+          <div
+            style={{
+              fontFamily: "Montserrat, sans-serif",
+              fontSize: "12px",
+              fontWeight: 400,
+              color: "#666666",
+            }}>
+            © 2025. All rights reserved.
+          </div>
+        </div>
       </div>
     </div>
   );
