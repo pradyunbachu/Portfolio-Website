@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 function App() {
   const [openSkillCategory, setOpenSkillCategory] = useState(null);
   const [visibleSections, setVisibleSections] = useState(new Set());
+  const [darkMode, setDarkMode] = useState(false);
 
   const aboutRef = useRef(null);
   const timelineRef = useRef(null);
@@ -46,9 +47,10 @@ function App() {
       style={{
         width: "100vw",
         minHeight: "100vh",
-        backgroundColor: "#fafafa",
+        backgroundColor: darkMode ? "#1a1a1a" : "#fafafa",
         margin: 0,
         padding: 0,
+        transition: "background-color 0.3s ease",
       }}>
       {/* Landing Page Section */}
       <div
@@ -62,6 +64,47 @@ function App() {
           alignItems: "center",
           position: "relative",
         }}>
+        {/* Dark Mode Toggle Button - Top Left */}
+        <button
+          className="fade-in-delay-2"
+          onClick={() => setDarkMode(!darkMode)}
+          style={{
+            position: "absolute",
+            top: "20px",
+            left: "20px",
+            width: "40px",
+            height: "40px",
+            borderRadius: "50%",
+            backgroundColor: darkMode ? "#2a2a2a" : "#f5f5f5",
+            border: "none",
+            cursor: "pointer",
+            transition: "all 0.3s ease",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "18px",
+            padding: 0,
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = darkMode
+              ? "#3a3a3a"
+              : "#e0e0e0";
+            e.currentTarget.style.transform = "scale(1.1)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = darkMode
+              ? "#2a2a2a"
+              : "#f5f5f5";
+            e.currentTarget.style.transform = "scale(1)";
+          }}>
+          <i
+            className={darkMode ? "fas fa-sun" : "fas fa-moon"}
+            style={{
+              fontSize: "16px",
+              color: darkMode ? "#fafafa" : "#000000",
+            }}></i>
+        </button>
+
         <div
           style={{
             display: "flex",
@@ -75,8 +118,9 @@ function App() {
               fontFamily: "Montserrat, sans-serif",
               fontSize: "64px",
               fontWeight: 700,
-              color: "#000000",
+              color: darkMode ? "#fafafa" : "#000000",
               textAlign: "center",
+              transition: "color 0.3s ease",
             }}>
             Pradyun Bachu
           </div>
@@ -86,8 +130,9 @@ function App() {
               fontFamily: "Montserrat, sans-serif",
               fontSize: "24px",
               fontWeight: 400,
-              color: "#000000",
+              color: darkMode ? "#e0e0e0" : "#000000",
               textAlign: "center",
+              transition: "color 0.3s ease",
             }}>
             Fullstack Developer, Economist, and Student
           </div>
@@ -112,21 +157,23 @@ function App() {
               fontFamily: "Montserrat, sans-serif",
               fontSize: "14px",
               fontWeight: 400,
-              color: "#000000",
+              color: darkMode ? "#fafafa" : "#000000",
               textDecoration: "none",
               padding: "8px 16px",
-              border: "1px solid #000000",
+              border: `1px solid ${darkMode ? "#fafafa" : "#000000"}`,
               borderRadius: "4px",
               transition: "all 0.2s",
               cursor: "pointer",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#000000";
-              e.currentTarget.style.color = "#fafafa";
+              e.currentTarget.style.backgroundColor = darkMode
+                ? "#fafafa"
+                : "#000000";
+              e.currentTarget.style.color = darkMode ? "#1a1a1a" : "#fafafa";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = "transparent";
-              e.currentTarget.style.color = "#000000";
+              e.currentTarget.style.color = darkMode ? "#fafafa" : "#000000";
             }}>
             Resume
           </a>
@@ -221,7 +268,8 @@ function App() {
               fontFamily: "Montserrat, sans-serif",
               fontSize: "18px",
               fontWeight: 700,
-              color: "#000000",
+              color: darkMode ? "#fafafa" : "#000000",
+              transition: "color 0.3s ease",
             }}>
             About Me
           </div>
@@ -230,9 +278,10 @@ function App() {
               fontFamily: "Montserrat, sans-serif",
               fontSize: "14px",
               fontWeight: 400,
-              color: "#000000",
+              color: darkMode ? "#e0e0e0" : "#000000",
               lineHeight: "1.6",
               maxWidth: "800px",
+              transition: "color 0.3s ease",
             }}>
             Hello! I'm Pradyun, a undergraduate student at the University of
             Wisconsin - Madison majoring in Computer Science and Economics with
@@ -263,9 +312,10 @@ function App() {
               fontFamily: "Montserrat, sans-serif",
               fontSize: "18px",
               fontWeight: 700,
-              color: "#000000",
+              color: darkMode ? "#fafafa" : "#000000",
               textAlign: "center",
               marginBottom: "20px",
+              transition: "color 0.3s ease",
             }}>
             Experience & Education
           </div>
@@ -284,8 +334,9 @@ function App() {
                 top: "0",
                 bottom: "0",
                 width: "2px",
-                backgroundColor: "#000000",
+                backgroundColor: darkMode ? "#fafafa" : "#000000",
                 transform: "translateX(-50%)",
+                transition: "background-color 0.3s ease",
               }}
             />
 
@@ -310,8 +361,9 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "16px",
                     fontWeight: 700,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
                     marginBottom: "5px",
+                    transition: "color 0.3s ease",
                   }}>
                   Data Analyst Intern
                 </div>
@@ -320,8 +372,9 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "14px",
                     fontWeight: 600,
-                    color: "#666666",
+                    color: darkMode ? "#b0b0b0" : "#666666",
                     marginBottom: "5px",
+                    transition: "color 0.3s ease",
                   }}>
                   United Nations: DESA
                 </div>
@@ -330,9 +383,10 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "12px",
                     fontWeight: 400,
-                    color: "#666666",
+                    color: darkMode ? "#b0b0b0" : "#666666",
                     fontStyle: "italic",
                     marginBottom: "5px",
+                    transition: "color 0.3s ease",
                   }}>
                   May 2025 – August 2025
                 </div>
@@ -341,7 +395,8 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "12px",
                     fontWeight: 400,
-                    color: "#666666",
+                    color: darkMode ? "#b0b0b0" : "#666666",
+                    transition: "color 0.3s ease",
                   }}>
                   New York, NY
                 </div>
@@ -355,8 +410,8 @@ function App() {
                   width: "16px",
                   height: "16px",
                   borderRadius: "50%",
-                  backgroundColor: "#000000",
-                  border: "3px solid #fafafa",
+                  backgroundColor: darkMode ? "#fafafa" : "#000000",
+                  border: `3px solid ${darkMode ? "#1a1a1a" : "#fafafa"}`,
                   transform: "translate(-50%, -50%)",
                   zIndex: 2,
                 }}
@@ -408,7 +463,8 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "16px",
                     fontWeight: 700,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     marginBottom: "5px",
                   }}>
                   B.S. Computer Science, Economics with Math Emphasis
@@ -418,7 +474,8 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "14px",
                     fontWeight: 600,
-                    color: "#666666",
+                    color: darkMode ? "#b0b0b0" : "#666666",
+                    transition: "color 0.3s ease",
                     marginBottom: "5px",
                   }}>
                   University of Wisconsin-Madison
@@ -428,7 +485,8 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "12px",
                     fontWeight: 400,
-                    color: "#666666",
+                    color: darkMode ? "#b0b0b0" : "#666666",
+                    transition: "color 0.3s ease",
                     fontStyle: "italic",
                     marginBottom: "5px",
                   }}>
@@ -439,7 +497,8 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "12px",
                     fontWeight: 400,
-                    color: "#666666",
+                    color: darkMode ? "#b0b0b0" : "#666666",
+                    transition: "color 0.3s ease",
                   }}>
                   Madison, WI
                 </div>
@@ -466,7 +525,8 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "16px",
                     fontWeight: 700,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     marginBottom: "5px",
                   }}>
                   Senior Engineer
@@ -476,7 +536,8 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "14px",
                     fontWeight: 600,
-                    color: "#666666",
+                    color: darkMode ? "#b0b0b0" : "#666666",
+                    transition: "color 0.3s ease",
                     marginBottom: "5px",
                   }}>
                   Peddie Robotics
@@ -486,7 +547,8 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "12px",
                     fontWeight: 400,
-                    color: "#666666",
+                    color: darkMode ? "#b0b0b0" : "#666666",
+                    transition: "color 0.3s ease",
                     fontStyle: "italic",
                     marginBottom: "5px",
                   }}>
@@ -497,7 +559,8 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "12px",
                     fontWeight: 400,
-                    color: "#666666",
+                    color: darkMode ? "#b0b0b0" : "#666666",
+                    transition: "color 0.3s ease",
                   }}>
                   Hightstown, NJ
                 </div>
@@ -564,7 +627,8 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "16px",
                     fontWeight: 700,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     marginBottom: "5px",
                   }}>
                   Event Day Judge & Logistics Team Lead
@@ -574,7 +638,8 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "14px",
                     fontWeight: 600,
-                    color: "#666666",
+                    color: darkMode ? "#b0b0b0" : "#666666",
+                    transition: "color 0.3s ease",
                     marginBottom: "5px",
                   }}>
                   PeddieHacks
@@ -584,7 +649,8 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "12px",
                     fontWeight: 400,
-                    color: "#666666",
+                    color: darkMode ? "#b0b0b0" : "#666666",
+                    transition: "color 0.3s ease",
                     fontStyle: "italic",
                     marginBottom: "5px",
                   }}>
@@ -595,7 +661,8 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "12px",
                     fontWeight: 400,
-                    color: "#666666",
+                    color: darkMode ? "#b0b0b0" : "#666666",
+                    transition: "color 0.3s ease",
                   }}>
                   Hightstown, NJ
                 </div>
@@ -656,9 +723,11 @@ function App() {
                   fontFamily: "Montserrat, sans-serif",
                   fontSize: "14px",
                   fontWeight: 700,
-                  color: "#000000",
-                  backgroundColor: "#ffffff",
-                  border: "2px solid #000000",
+                  color: darkMode ? "#fafafa" : "#000000",
+                  transition: "color 0.3s ease",
+                  backgroundColor: darkMode ? "#2a2a2a" : "#ffffff",
+                  border: `2px solid ${darkMode ? "#fafafa" : "#000000"}`,
+                  transition: "all 0.3s ease",
                   borderRadius: "4px",
                   padding: "20px",
                   cursor: "pointer",
@@ -689,9 +758,11 @@ function App() {
                   fontFamily: "Montserrat, sans-serif",
                   fontSize: "14px",
                   fontWeight: 700,
-                  color: "#000000",
-                  backgroundColor: "#ffffff",
-                  border: "2px solid #000000",
+                  color: darkMode ? "#fafafa" : "#000000",
+                  transition: "color 0.3s ease",
+                  backgroundColor: darkMode ? "#2a2a2a" : "#ffffff",
+                  border: `2px solid ${darkMode ? "#fafafa" : "#000000"}`,
+                  transition: "all 0.3s ease",
                   borderRadius: "4px",
                   padding: "20px",
                   cursor: "pointer",
@@ -722,9 +793,11 @@ function App() {
                   fontFamily: "Montserrat, sans-serif",
                   fontSize: "14px",
                   fontWeight: 700,
-                  color: "#000000",
-                  backgroundColor: "#ffffff",
-                  border: "2px solid #000000",
+                  color: darkMode ? "#fafafa" : "#000000",
+                  transition: "color 0.3s ease",
+                  backgroundColor: darkMode ? "#2a2a2a" : "#ffffff",
+                  border: `2px solid ${darkMode ? "#fafafa" : "#000000"}`,
+                  transition: "all 0.3s ease",
                   borderRadius: "4px",
                   padding: "20px",
                   cursor: "pointer",
@@ -755,9 +828,11 @@ function App() {
                   fontFamily: "Montserrat, sans-serif",
                   fontSize: "14px",
                   fontWeight: 700,
-                  color: "#000000",
-                  backgroundColor: "#ffffff",
-                  border: "2px solid #000000",
+                  color: darkMode ? "#fafafa" : "#000000",
+                  transition: "color 0.3s ease",
+                  backgroundColor: darkMode ? "#2a2a2a" : "#ffffff",
+                  border: `2px solid ${darkMode ? "#fafafa" : "#000000"}`,
+                  transition: "all 0.3s ease",
                   borderRadius: "4px",
                   padding: "20px",
                   cursor: "pointer",
@@ -788,9 +863,11 @@ function App() {
                   fontFamily: "Montserrat, sans-serif",
                   fontSize: "14px",
                   fontWeight: 700,
-                  color: "#000000",
-                  backgroundColor: "#ffffff",
-                  border: "2px solid #000000",
+                  color: darkMode ? "#fafafa" : "#000000",
+                  transition: "color 0.3s ease",
+                  backgroundColor: darkMode ? "#2a2a2a" : "#ffffff",
+                  border: `2px solid ${darkMode ? "#fafafa" : "#000000"}`,
+                  transition: "all 0.3s ease",
                   borderRadius: "4px",
                   padding: "20px",
                   cursor: "pointer",
@@ -827,7 +904,8 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "16px",
                     fontWeight: 600,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     padding: "20px",
                     backgroundColor: "#f9f9f9",
                     borderRadius: "4px",
@@ -844,7 +922,8 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "16px",
                     fontWeight: 600,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     padding: "20px",
                     backgroundColor: "#f9f9f9",
                     borderRadius: "4px",
@@ -861,7 +940,8 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "16px",
                     fontWeight: 600,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     padding: "20px",
                     backgroundColor: "#f9f9f9",
                     borderRadius: "4px",
@@ -881,7 +961,8 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "16px",
                     fontWeight: 600,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     padding: "20px",
                     backgroundColor: "#f9f9f9",
                     borderRadius: "4px",
@@ -898,7 +979,8 @@ function App() {
                     fontFamily: "Montserrat, sans-serif",
                     fontSize: "16px",
                     fontWeight: 600,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     padding: "20px",
                     backgroundColor: "#f9f9f9",
                     borderRadius: "4px",
@@ -959,8 +1041,9 @@ function App() {
               <div
                 style={{
                   fontFamily: "Montserrat, sans-serif",
-                  backgroundColor: "#ffffff",
-                  border: "2px solid #000000",
+                  backgroundColor: darkMode ? "#2a2a2a" : "#ffffff",
+                  border: `2px solid ${darkMode ? "#fafafa" : "#000000"}`,
+                  transition: "all 0.3s ease",
                   borderRadius: "4px",
                   padding: "20px",
                   display: "flex",
@@ -972,7 +1055,8 @@ function App() {
                   style={{
                     fontSize: "16px",
                     fontWeight: 700,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     textAlign: "center",
                   }}>
                   Risk Dashboard Analyzer
@@ -981,7 +1065,8 @@ function App() {
                   style={{
                     fontSize: "12px",
                     fontStyle: "italic",
-                    color: "#666666",
+                    color: darkMode ? "#b0b0b0" : "#666666",
+                    transition: "color 0.3s ease",
                     textAlign: "center",
                   }}>
                   COMING SOON
@@ -990,7 +1075,8 @@ function App() {
                   style={{
                     fontSize: "12px",
                     fontWeight: 400,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     lineHeight: "1.6",
                     textAlign: "left",
                   }}>
@@ -1004,7 +1090,8 @@ function App() {
                   style={{
                     fontSize: "12px",
                     fontWeight: 600,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     marginTop: "5px",
                   }}>
                   Tech Stack:
@@ -1013,7 +1100,8 @@ function App() {
                   style={{
                     fontSize: "12px",
                     fontWeight: 400,
-                    color: "#666666",
+                    color: darkMode ? "#b0b0b0" : "#666666",
+                    transition: "color 0.3s ease",
                   }}>
                   Python, PostgreSQL, SQL, Pandas, Streamlit
                 </div>
@@ -1031,7 +1119,8 @@ function App() {
                     style={{
                       fontFamily: "Montserrat, sans-serif",
                       fontSize: "12px",
-                      color: "#000000",
+                      color: darkMode ? "#fafafa" : "#000000",
+                      transition: "color 0.3s ease",
                       textDecoration: "underline",
                       cursor: "pointer",
                     }}>
@@ -1044,8 +1133,9 @@ function App() {
               <div
                 style={{
                   fontFamily: "Montserrat, sans-serif",
-                  backgroundColor: "#ffffff",
-                  border: "2px solid #000000",
+                  backgroundColor: darkMode ? "#2a2a2a" : "#ffffff",
+                  border: `2px solid ${darkMode ? "#fafafa" : "#000000"}`,
+                  transition: "all 0.3s ease",
                   borderRadius: "4px",
                   padding: "20px",
                   display: "flex",
@@ -1057,7 +1147,8 @@ function App() {
                   style={{
                     fontSize: "16px",
                     fontWeight: 700,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     textAlign: "center",
                   }}>
                   Redline
@@ -1066,7 +1157,8 @@ function App() {
                   style={{
                     fontSize: "12px",
                     fontWeight: 400,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     lineHeight: "1.6",
                     textAlign: "left",
                   }}>
@@ -1080,7 +1172,8 @@ function App() {
                   style={{
                     fontSize: "12px",
                     fontWeight: 600,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     marginTop: "5px",
                   }}>
                   Tech Stack:
@@ -1089,7 +1182,8 @@ function App() {
                   style={{
                     fontSize: "12px",
                     fontWeight: 400,
-                    color: "#666666",
+                    color: darkMode ? "#b0b0b0" : "#666666",
+                    transition: "color 0.3s ease",
                   }}>
                   Python, React, YOLOv8, Groq LLM, OpenCV
                 </div>
@@ -1107,7 +1201,8 @@ function App() {
                     style={{
                       fontFamily: "Montserrat, sans-serif",
                       fontSize: "12px",
-                      color: "#000000",
+                      color: darkMode ? "#fafafa" : "#000000",
+                      transition: "color 0.3s ease",
                       textDecoration: "underline",
                       cursor: "pointer",
                     }}>
@@ -1120,7 +1215,8 @@ function App() {
                     style={{
                       fontFamily: "Montserrat, sans-serif",
                       fontSize: "12px",
-                      color: "#000000",
+                      color: darkMode ? "#fafafa" : "#000000",
+                      transition: "color 0.3s ease",
                       textDecoration: "underline",
                       cursor: "pointer",
                     }}>
@@ -1133,8 +1229,9 @@ function App() {
               <div
                 style={{
                   fontFamily: "Montserrat, sans-serif",
-                  backgroundColor: "#ffffff",
-                  border: "2px solid #000000",
+                  backgroundColor: darkMode ? "#2a2a2a" : "#ffffff",
+                  border: `2px solid ${darkMode ? "#fafafa" : "#000000"}`,
+                  transition: "all 0.3s ease",
                   borderRadius: "4px",
                   padding: "20px",
                   display: "flex",
@@ -1146,7 +1243,8 @@ function App() {
                   style={{
                     fontSize: "16px",
                     fontWeight: 700,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     textAlign: "center",
                   }}>
                   Shadows & Suits
@@ -1155,7 +1253,8 @@ function App() {
                   style={{
                     fontSize: "12px",
                     fontWeight: 400,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     lineHeight: "1.6",
                     textAlign: "left",
                   }}>
@@ -1166,7 +1265,8 @@ function App() {
                   style={{
                     fontSize: "12px",
                     fontWeight: 600,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     marginTop: "5px",
                   }}>
                   Tech Stack:
@@ -1175,7 +1275,8 @@ function App() {
                   style={{
                     fontSize: "12px",
                     fontWeight: 400,
-                    color: "#666666",
+                    color: darkMode ? "#b0b0b0" : "#666666",
+                    transition: "color 0.3s ease",
                   }}>
                   React, TypeScript, Vite, Tailwind CSS
                 </div>
@@ -1193,7 +1294,8 @@ function App() {
                     style={{
                       fontFamily: "Montserrat, sans-serif",
                       fontSize: "12px",
-                      color: "#000000",
+                      color: darkMode ? "#fafafa" : "#000000",
+                      transition: "color 0.3s ease",
                       textDecoration: "underline",
                       cursor: "pointer",
                     }}>
@@ -1206,7 +1308,8 @@ function App() {
                     style={{
                       fontFamily: "Montserrat, sans-serif",
                       fontSize: "12px",
-                      color: "#000000",
+                      color: darkMode ? "#fafafa" : "#000000",
+                      transition: "color 0.3s ease",
                       textDecoration: "underline",
                       cursor: "pointer",
                     }}>
@@ -1219,8 +1322,9 @@ function App() {
               <div
                 style={{
                   fontFamily: "Montserrat, sans-serif",
-                  backgroundColor: "#ffffff",
-                  border: "2px solid #000000",
+                  backgroundColor: darkMode ? "#2a2a2a" : "#ffffff",
+                  border: `2px solid ${darkMode ? "#fafafa" : "#000000"}`,
+                  transition: "all 0.3s ease",
                   borderRadius: "4px",
                   padding: "20px",
                   display: "flex",
@@ -1232,7 +1336,8 @@ function App() {
                   style={{
                     fontSize: "16px",
                     fontWeight: 700,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     textAlign: "center",
                   }}>
                   NFL Game Predictor
@@ -1241,7 +1346,8 @@ function App() {
                   style={{
                     fontSize: "12px",
                     fontStyle: "italic",
-                    color: "#666666",
+                    color: darkMode ? "#b0b0b0" : "#666666",
+                    transition: "color 0.3s ease",
                     textAlign: "center",
                   }}>
                   COMING SOON
@@ -1250,7 +1356,8 @@ function App() {
                   style={{
                     fontSize: "12px",
                     fontWeight: 600,
-                    color: "#000000",
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
                     marginTop: "5px",
                   }}>
                   Tech Stack:
@@ -1259,7 +1366,8 @@ function App() {
                   style={{
                     fontSize: "12px",
                     fontWeight: 400,
-                    color: "#666666",
+                    color: darkMode ? "#b0b0b0" : "#666666",
+                    transition: "color 0.3s ease",
                   }}>
                   Python, Pandas, NumPy, Matplotlib
                 </div>
