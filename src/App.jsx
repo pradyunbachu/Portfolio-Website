@@ -3,7 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 function App() {
   const [openSkillCategory, setOpenSkillCategory] = useState(null);
   const [visibleSections, setVisibleSections] = useState(new Set());
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const aboutRef = useRef(null);
   const timelineRef = useRef(null);
@@ -42,6 +43,33 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownOpen && !event.target.closest('[data-dropdown]')) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownOpen]);
+
+  const scrollToSection = (ref) => {
+    if (ref && ref.current) {
+      const element = ref.current;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - 80; // 80px offset above
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+      setDropdownOpen(false);
+    }
+  };
+
   return (
     <div
       style={{
@@ -64,46 +92,168 @@ function App() {
           alignItems: "center",
           position: "relative",
         }}>
-        {/* Dark Mode Toggle Button - Top Left */}
-        <button
-          className="fade-in-delay-2"
-          onClick={() => setDarkMode(!darkMode)}
+        {/* Logo with Dropdown - Top Left */}
+        <div
+          data-dropdown
           style={{
             position: "absolute",
             top: "20px",
             left: "20px",
-            width: "40px",
-            height: "40px",
-            borderRadius: "50%",
-            backgroundColor: darkMode ? "#2a2a2a" : "#f5f5f5",
-            border: "none",
-            cursor: "pointer",
-            transition: "all 0.3s ease",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "18px",
-            padding: 0,
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = darkMode
-              ? "#3a3a3a"
-              : "#e0e0e0";
-            e.currentTarget.style.transform = "scale(1.1)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = darkMode
-              ? "#2a2a2a"
-              : "#f5f5f5";
-            e.currentTarget.style.transform = "scale(1)";
+            zIndex: 1000,
           }}>
-          <i
-            className={darkMode ? "fas fa-sun" : "fas fa-moon"}
+          <div
+            onClick={() => setDropdownOpen(!dropdownOpen)}
             style={{
-              fontSize: "16px",
-              color: darkMode ? "#fafafa" : "#000000",
-            }}></i>
-        </button>
+              cursor: "pointer",
+              width: "60px",
+              height: "60px",
+              borderRadius: "50%",
+              overflow: "hidden",
+              transition: "transform 0.2s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "scale(1.05)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+            }}>
+            <img
+              src={`${import.meta.env.BASE_URL}PBLogoWebsite.png`}
+              alt="Logo"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            />
+          </div>
+          {dropdownOpen && (
+            <div
+              style={{
+                position: "absolute",
+                top: "70px",
+                left: "0",
+                display: "flex",
+                flexDirection: "column",
+                gap: "8px",
+                minWidth: "200px",
+                zIndex: 1001,
+              }}>
+              <button
+                className="dropdown-item-1"
+                onClick={() => scrollToSection(aboutRef)}
+                style={{
+                  padding: "12px 20px",
+                  backgroundColor: "transparent",
+                  border: "none",
+                  textAlign: "left",
+                  fontFamily: "Montserrat, sans-serif",
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  color: darkMode ? "#fafafa" : "#000000",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                  borderRadius: "4px",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = darkMode
+                    ? "rgba(255, 255, 255, 0.1)"
+                    : "rgba(0, 0, 0, 0.05)";
+                  e.currentTarget.style.transform = "translateX(5px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "transparent";
+                  e.currentTarget.style.transform = "translateX(0)";
+                }}>
+                About Me
+              </button>
+              <button
+                className="dropdown-item-2"
+                onClick={() => scrollToSection(timelineRef)}
+                style={{
+                  padding: "12px 20px",
+                  backgroundColor: "transparent",
+                  border: "none",
+                  textAlign: "left",
+                  fontFamily: "Montserrat, sans-serif",
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  color: darkMode ? "#fafafa" : "#000000",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                  borderRadius: "4px",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = darkMode
+                    ? "rgba(255, 255, 255, 0.1)"
+                    : "rgba(0, 0, 0, 0.05)";
+                  e.currentTarget.style.transform = "translateX(5px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "transparent";
+                  e.currentTarget.style.transform = "translateX(0)";
+                }}>
+                Experience & Education
+              </button>
+              <button
+                className="dropdown-item-3"
+                onClick={() => scrollToSection(skillsRef)}
+                style={{
+                  padding: "12px 20px",
+                  backgroundColor: "transparent",
+                  border: "none",
+                  textAlign: "left",
+                  fontFamily: "Montserrat, sans-serif",
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  color: darkMode ? "#fafafa" : "#000000",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                  borderRadius: "4px",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = darkMode
+                    ? "rgba(255, 255, 255, 0.1)"
+                    : "rgba(0, 0, 0, 0.05)";
+                  e.currentTarget.style.transform = "translateX(5px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "transparent";
+                  e.currentTarget.style.transform = "translateX(0)";
+                }}>
+                Skills
+              </button>
+              <button
+                className="dropdown-item-4"
+                onClick={() => scrollToSection(projectsRef)}
+                style={{
+                  padding: "12px 20px",
+                  backgroundColor: "transparent",
+                  border: "none",
+                  textAlign: "left",
+                  fontFamily: "Montserrat, sans-serif",
+                  fontSize: "14px",
+                  fontWeight: 500,
+                  color: darkMode ? "#fafafa" : "#000000",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                  borderRadius: "4px",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = darkMode
+                    ? "rgba(255, 255, 255, 0.1)"
+                    : "rgba(0, 0, 0, 0.05)";
+                  e.currentTarget.style.transform = "translateX(5px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "transparent";
+                  e.currentTarget.style.transform = "translateX(0)";
+                }}>
+                Projects
+              </button>
+            </div>
+          )}
+        </div>
 
         <div
           style={{
@@ -183,18 +333,20 @@ function App() {
             rel="noopener noreferrer"
             style={{
               cursor: "pointer",
-              color: "#24292e",
+              color: darkMode ? "#fafafa" : "#24292e",
               textDecoration: "none",
               fontSize: "24px",
-              transition: "transform 0.2s",
+              transition: "all 0.2s ease",
               display: "inline-block",
             }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.transform = "scale(1.1)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.transform = "scale(1)")
-            }>
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "scale(1.1)";
+              e.currentTarget.style.color = darkMode ? "#ffffff" : "#000000";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.color = darkMode ? "#fafafa" : "#24292e";
+            }}>
             <i className="fab fa-github"></i>
           </a>
           <a
@@ -235,6 +387,42 @@ function App() {
             }>
             <i className="fab fa-linkedin"></i>
           </a>
+          <button
+            className="fade-in-delay-2"
+            onClick={() => setDarkMode(!darkMode)}
+            style={{
+              width: "40px",
+              height: "40px",
+              borderRadius: "50%",
+              backgroundColor: darkMode ? "#2a2a2a" : "#f5f5f5",
+              border: "none",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "18px",
+              padding: 0,
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = darkMode
+                ? "#3a3a3a"
+                : "#e0e0e0";
+              e.currentTarget.style.transform = "scale(1.1)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = darkMode
+                ? "#2a2a2a"
+                : "#f5f5f5";
+              e.currentTarget.style.transform = "scale(1)";
+            }}>
+            <i
+              className={darkMode ? "fas fa-sun" : "fas fa-moon"}
+              style={{
+                fontSize: "16px",
+                color: darkMode ? "#fafafa" : "#000000",
+              }}></i>
+          </button>
         </div>
       </div>
 
@@ -407,11 +595,11 @@ function App() {
                   position: "absolute",
                   left: "50%",
                   top: "50%",
-                  width: "16px",
-                  height: "16px",
+                  width: "10px",
+                  height: "10px",
                   borderRadius: "50%",
                   backgroundColor: darkMode ? "#fafafa" : "#000000",
-                  border: `3px solid ${darkMode ? "#1a1a1a" : "#fafafa"}`,
+                  border: darkMode ? "none" : "2px solid #fafafa",
                   transform: "translate(-50%, -50%)",
                   zIndex: 2,
                 }}
@@ -443,11 +631,11 @@ function App() {
                   position: "absolute",
                   left: "50%",
                   top: "50%",
-                  width: "16px",
-                  height: "16px",
+                  width: "10px",
+                  height: "10px",
                   borderRadius: "50%",
-                  backgroundColor: "#000000",
-                  border: "3px solid #fafafa",
+                  backgroundColor: darkMode ? "#fafafa" : "#000000",
+                  border: darkMode ? "none" : "2px solid #fafafa",
                   transform: "translate(-50%, -50%)",
                   zIndex: 2,
                 }}
@@ -571,11 +759,11 @@ function App() {
                   position: "absolute",
                   left: "50%",
                   top: "50%",
-                  width: "16px",
-                  height: "16px",
+                  width: "10px",
+                  height: "10px",
                   borderRadius: "50%",
-                  backgroundColor: "#000000",
-                  border: "3px solid #fafafa",
+                  backgroundColor: darkMode ? "#fafafa" : "#000000",
+                  border: darkMode ? "none" : "2px solid #fafafa",
                   transform: "translate(-50%, -50%)",
                   zIndex: 2,
                 }}
@@ -607,11 +795,11 @@ function App() {
                   position: "absolute",
                   left: "50%",
                   top: "50%",
-                  width: "16px",
-                  height: "16px",
+                  width: "10px",
+                  height: "10px",
                   borderRadius: "50%",
-                  backgroundColor: "#000000",
-                  border: "3px solid #fafafa",
+                  backgroundColor: darkMode ? "#fafafa" : "#000000",
+                  border: darkMode ? "none" : "2px solid #fafafa",
                   transform: "translate(-50%, -50%)",
                   zIndex: 2,
                 }}
@@ -693,7 +881,8 @@ function App() {
               fontFamily: "Montserrat, sans-serif",
               fontSize: "18px",
               fontWeight: 700,
-              color: "#000000",
+              color: darkMode ? "#fafafa" : "#000000",
+              transition: "color 0.3s ease",
             }}>
             Skills
           </div>
@@ -739,10 +928,10 @@ function App() {
                   textAlign: "center",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#f5f5f5";
+                  e.currentTarget.style.backgroundColor = darkMode ? "#3a3a3a" : "#f5f5f5";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "#ffffff";
+                  e.currentTarget.style.backgroundColor = darkMode ? "#2a2a2a" : "#ffffff";
                 }}>
                 Programming Languages
               </div>
@@ -774,10 +963,10 @@ function App() {
                   textAlign: "center",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#f5f5f5";
+                  e.currentTarget.style.backgroundColor = darkMode ? "#3a3a3a" : "#f5f5f5";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "#ffffff";
+                  e.currentTarget.style.backgroundColor = darkMode ? "#2a2a2a" : "#ffffff";
                 }}>
                 Frameworks
               </div>
@@ -809,10 +998,10 @@ function App() {
                   textAlign: "center",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#f5f5f5";
+                  e.currentTarget.style.backgroundColor = darkMode ? "#3a3a3a" : "#f5f5f5";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "#ffffff";
+                  e.currentTarget.style.backgroundColor = darkMode ? "#2a2a2a" : "#ffffff";
                 }}>
                 Developer Tools
               </div>
@@ -844,10 +1033,10 @@ function App() {
                   textAlign: "center",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#f5f5f5";
+                  e.currentTarget.style.backgroundColor = darkMode ? "#3a3a3a" : "#f5f5f5";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "#ffffff";
+                  e.currentTarget.style.backgroundColor = darkMode ? "#2a2a2a" : "#ffffff";
                 }}>
                 Libraries
               </div>
@@ -879,10 +1068,10 @@ function App() {
                   textAlign: "center",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#f5f5f5";
+                  e.currentTarget.style.backgroundColor = darkMode ? "#3a3a3a" : "#f5f5f5";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "#ffffff";
+                  e.currentTarget.style.backgroundColor = darkMode ? "#2a2a2a" : "#ffffff";
                 }}>
                 Interests
               </div>
@@ -905,9 +1094,9 @@ function App() {
                     fontSize: "16px",
                     fontWeight: 600,
                     color: darkMode ? "#fafafa" : "#000000",
-                    transition: "color 0.3s ease",
+                    transition: "all 0.3s ease",
                     padding: "20px",
-                    backgroundColor: "#f9f9f9",
+                    backgroundColor: darkMode ? "#2a2a2a" : "#f9f9f9",
                     borderRadius: "4px",
                     width: "100%",
                     textAlign: "center",
@@ -923,9 +1112,9 @@ function App() {
                     fontSize: "16px",
                     fontWeight: 600,
                     color: darkMode ? "#fafafa" : "#000000",
-                    transition: "color 0.3s ease",
+                    transition: "all 0.3s ease",
                     padding: "20px",
-                    backgroundColor: "#f9f9f9",
+                    backgroundColor: darkMode ? "#2a2a2a" : "#f9f9f9",
                     borderRadius: "4px",
                     width: "100%",
                     textAlign: "center",
@@ -941,9 +1130,9 @@ function App() {
                     fontSize: "16px",
                     fontWeight: 600,
                     color: darkMode ? "#fafafa" : "#000000",
-                    transition: "color 0.3s ease",
+                    transition: "all 0.3s ease",
                     padding: "20px",
-                    backgroundColor: "#f9f9f9",
+                    backgroundColor: darkMode ? "#2a2a2a" : "#f9f9f9",
                     borderRadius: "4px",
                     width: "100%",
                     textAlign: "center",
@@ -962,9 +1151,9 @@ function App() {
                     fontSize: "16px",
                     fontWeight: 600,
                     color: darkMode ? "#fafafa" : "#000000",
-                    transition: "color 0.3s ease",
+                    transition: "all 0.3s ease",
                     padding: "20px",
-                    backgroundColor: "#f9f9f9",
+                    backgroundColor: darkMode ? "#2a2a2a" : "#f9f9f9",
                     borderRadius: "4px",
                     width: "100%",
                     textAlign: "center",
@@ -980,9 +1169,9 @@ function App() {
                     fontSize: "16px",
                     fontWeight: 600,
                     color: darkMode ? "#fafafa" : "#000000",
-                    transition: "color 0.3s ease",
+                    transition: "all 0.3s ease",
                     padding: "20px",
-                    backgroundColor: "#f9f9f9",
+                    backgroundColor: darkMode ? "#2a2a2a" : "#f9f9f9",
                     borderRadius: "4px",
                     width: "100%",
                     textAlign: "center",
@@ -1018,7 +1207,8 @@ function App() {
               fontFamily: "Montserrat, sans-serif",
               fontSize: "18px",
               fontWeight: 700,
-              color: "#000000",
+              color: darkMode ? "#fafafa" : "#000000",
+              transition: "color 0.3s ease",
             }}>
             Projects
           </div>
@@ -1382,15 +1572,17 @@ function App() {
             width: "100%",
             padding: "40px 20px",
             textAlign: "center",
-            borderTop: "1px solid #e0e0e0",
+            borderTop: `1px solid ${darkMode ? "#3a3a3a" : "#e0e0e0"}`,
             marginTop: "60px",
+            transition: "border-color 0.3s ease",
           }}>
           <div
             style={{
               fontFamily: "Montserrat, sans-serif",
               fontSize: "12px",
               fontWeight: 400,
-              color: "#666666",
+              color: darkMode ? "#b0b0b0" : "#666666",
+              transition: "color 0.3s ease",
             }}>
             © 2025. All rights reserved.
           </div>

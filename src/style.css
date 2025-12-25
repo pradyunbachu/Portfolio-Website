@@ -85,3 +85,34 @@ body {
     transform: translateY(0);
   }
 }
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-item-1 {
+  animation: dropdownFadeIn 0.3s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.dropdown-item-2 {
+  animation: dropdownFadeIn 0.3s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.dropdown-item-3 {
+  animation: dropdownFadeIn 0.3s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.dropdown-item-4 {
+  animation: dropdownFadeIn 0.3s ease-out 0.4s forwards;
+  opacity: 0;
+}
