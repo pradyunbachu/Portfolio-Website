@@ -1227,7 +1227,7 @@ function App() {
                 gap: "20px",
                 width: "100%",
               }}>
-              {/* Risk Dashboard Analyzer Box */}
+              {/* Voxalyze Box */}
               <div
                 style={{
                   fontFamily: "Montserrat, sans-serif",
@@ -1249,17 +1249,7 @@ function App() {
                     transition: "color 0.3s ease",
                     textAlign: "center",
                   }}>
-                  Risk Dashboard Analyzer
-                </div>
-                <div
-                  style={{
-                    fontSize: "12px",
-                    fontStyle: "italic",
-                    color: darkMode ? "#b0b0b0" : "#666666",
-                    transition: "color 0.3s ease",
-                    textAlign: "center",
-                  }}>
-                  COMING SOON
+                  Voxalyze
                 </div>
                 <div
                   style={{
@@ -1270,11 +1260,10 @@ function App() {
                     lineHeight: "1.6",
                     textAlign: "left",
                   }}>
-                  A full-stack analytics tool that pulls historical market data,
-                  stores it in a PostgreSQL database, and calculates key risk
-                  metrics used by financial institutions. Users can build custom
-                  portfolios and visualize how their holdings might perform
-                  under different market conditions.
+                  An AI-powered expense tracker that simplifies financial management through voice input. 
+                  Simply speak your purchases and the app automatically extracts transaction details using 
+                  advanced natural language processing. Features intelligent categorization, spending analytics, 
+                  and visual insights to help you track and understand your expenses effortlessly.
                 </div>
                 <div
                   style={{
@@ -1293,7 +1282,7 @@ function App() {
                     color: darkMode ? "#b0b0b0" : "#666666",
                     transition: "color 0.3s ease",
                   }}>
-                  Python, PostgreSQL, SQL, Pandas, Streamlit
+                  Python, FastAPI, React, Groq LLM, SQLite, Web Speech API, Recharts
                 </div>
                 <div
                   style={{
@@ -1303,7 +1292,7 @@ function App() {
                     marginTop: "10px",
                   }}>
                   <a
-                    href="https://github.com/pradyunbachu/Risk-Dashboard-Analyzer"
+                    href="https://github.com/pradyunbachu/VoiceP_App"
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
@@ -1504,6 +1493,98 @@ function App() {
                       cursor: "pointer",
                     }}>
                     Live Demo
+                  </a>
+                </div>
+              </div>
+
+              {/* Risk Dashboard Analyzer Box */}
+              <div
+                style={{
+                  fontFamily: "Montserrat, sans-serif",
+                  backgroundColor: darkMode ? "#2a2a2a" : "#ffffff",
+                  border: `2px solid ${darkMode ? "#fafafa" : "#000000"}`,
+                  transition: "all 0.3s ease",
+                  borderRadius: "4px",
+                  padding: "20px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "15px",
+                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                }}>
+                <div
+                  style={{
+                    fontSize: "16px",
+                    fontWeight: 700,
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
+                    textAlign: "center",
+                  }}>
+                  Risk Dashboard Analyzer
+                </div>
+                <div
+                  style={{
+                    fontSize: "12px",
+                    fontStyle: "italic",
+                    color: darkMode ? "#b0b0b0" : "#666666",
+                    transition: "color 0.3s ease",
+                    textAlign: "center",
+                  }}>
+                  COMING SOON
+                </div>
+                <div
+                  style={{
+                    fontSize: "12px",
+                    fontWeight: 400,
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
+                    lineHeight: "1.6",
+                    textAlign: "left",
+                  }}>
+                  A full-stack analytics tool that pulls historical market data,
+                  stores it in a PostgreSQL database, and calculates key risk
+                  metrics used by financial institutions. Users can build custom
+                  portfolios and visualize how their holdings might perform
+                  under different market conditions.
+                </div>
+                <div
+                  style={{
+                    fontSize: "12px",
+                    fontWeight: 600,
+                    color: darkMode ? "#fafafa" : "#000000",
+                    transition: "color 0.3s ease",
+                    marginTop: "5px",
+                  }}>
+                  Tech Stack:
+                </div>
+                <div
+                  style={{
+                    fontSize: "12px",
+                    fontWeight: 400,
+                    color: darkMode ? "#b0b0b0" : "#666666",
+                    transition: "color 0.3s ease",
+                  }}>
+                  Python, PostgreSQL, SQL, Pandas, Streamlit
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "10px",
+                    marginTop: "10px",
+                  }}>
+                  <a
+                    href="https://github.com/pradyunbachu/Risk-Dashboard-Analyzer"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      fontFamily: "Montserrat, sans-serif",
+                      fontSize: "12px",
+                      color: darkMode ? "#fafafa" : "#000000",
+                      transition: "color 0.3s ease",
+                      textDecoration: "underline",
+                      cursor: "pointer",
+                    }}>
+                    GitHub
                   </a>
                 </div>
               </div>
