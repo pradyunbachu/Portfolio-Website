@@ -111,7 +111,9 @@ function App() {
         "Collaborated with a team to build a healthcare cost projection platform using Deepgram speech-to-text and a two-layer detection system (regex + Groq LLM) to map symptoms to 40+ ICD-10 conditions. Features a simulation engine using odds ratios from 1.5M+ MEPS patient records, interactive Cytoscape.js disease progression visualization, and side-by-side CMS marketplace insurance plan comparison with Supabase Google OAuth authentication.",
       techStack:
         "Python, React, FastAPI, Groq LLM, Deepgram, Cytoscape.js, Supabase, Vite",
-      links: [],
+      links: [
+        { label: "GitHub", url: "https://github.com/pradyunbachu/Lotus" },
+      ],
     },
     {
       title: "Voxal",
