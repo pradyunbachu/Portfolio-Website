@@ -402,7 +402,7 @@ function App() {
             alignItems: "center",
           }}>
           <a
-            href={`${import.meta.env.BASE_URL}PradyunBachu_Resume.pdf`}
+            href={`${import.meta.env.BASE_URL}Bachu_Pradyun_Resume.pdf`}
             target="_blank"
             rel="noopener noreferrer"
             style={{
