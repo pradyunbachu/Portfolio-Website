@@ -124,6 +124,7 @@ function App() {
         "Python, React, FastAPI, Groq LLM, Groq Vision, Deepgram, Supabase, PostgreSQL",
       links: [
         { label: "GitHub", url: "https://github.com/pradyunbachu/VoiceP_App" },
+        { label: "Live App", url: "https://voxal.vercel.app/" },
       ],
     },
     {
