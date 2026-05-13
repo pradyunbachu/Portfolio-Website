@@ -1,13 +1,25 @@
 export const about = {
   paragraph:
-    "I'm a CS and Economics student at UW–Madison interested in data engineering, full-stack development, and quantitative work. I like building things end-to-end — data pipelines, APIs, dashboards, and the occasional game.",
+    "I'm a CS and Economics student at UW–Madison, interested in software engineering, data engineering, and data analytics.",
 };
 
 export const skills = [
-  "Python", "Java", "C", "R", "SQL", "JavaScript", "HTML/CSS",
-  "React", "FastAPI", "Flask", "Vite",
-  "Git", "Docker", "Supabase", "PostgreSQL",
-  "Pandas", "NumPy", "Matplotlib", "OpenCV", "YOLOv8",
+  {
+    label: "Languages",
+    items: ["Python", "Java", "SQL", "C", "R", "JavaScript", "TypeScript", "HTML/CSS"],
+  },
+  {
+    label: "Frameworks & Libraries",
+    items: ["React", "FastAPI", "Flask", "Vite", "Pandas", "NumPy", "Matplotlib", "OpenCV"],
+  },
+  {
+    label: "AI / ML",
+    items: ["Groq API", "Groq Vision", "Deepgram API", "YOLOv8"],
+  },
+  {
+    label: "Data & Cloud",
+    items: ["Airflow", "dbt", "TimescaleDB", "AWS (S3)", "Docker", "Supabase", "Git", "Tableau"],
+  },
 ];
 
 export const experience = [
@@ -110,11 +122,12 @@ export const projects = [
 ];
 
 export const contact = {
-  prompt: "Reach out — I'm always up for a conversation.",
+  prompt: "Reach out. I'm always up for a conversation.",
   links: [
     { label: "Email", value: "pbachu@wisc.edu", url: "mailto:pbachu@wisc.edu" },
+    { label: "Gmail", value: "pradyun.bachu@gmail.com", url: "mailto:pradyun.bachu@gmail.com" },
     { label: "GitHub", value: "github.com/pradyunbachu", url: "https://github.com/pradyunbachu" },
     { label: "LinkedIn", value: "linkedin.com/in/pradyun-bachu", url: "https://www.linkedin.com/in/pradyun-bachu/" },
-    { label: "Resume", value: "Bachu_Pradyun_Resume.pdf", url: "/Bachu_Pradyun_Resume.pdf" },
+    { label: "Resume", value: "Bachu_Pradyun_Resume.pdf", url: `${import.meta.env.BASE_URL}Bachu_Pradyun_Resume.pdf` },
   ],
 };

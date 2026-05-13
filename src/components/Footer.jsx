@@ -15,7 +15,7 @@ export default function Footer() {
               target={external ? '_blank' : undefined}
               rel={external ? 'noopener noreferrer' : undefined}
             >
-              {link.label.toLowerCase()}
+              {link.label}
             </a>
           );
         })}
