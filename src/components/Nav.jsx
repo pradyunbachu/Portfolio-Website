@@ -17,10 +17,11 @@ export default function Nav({ theme, onToggleTheme }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollTo = (id) => {
+  const scrollTo = (e, id) => {
+    e.preventDefault();
     const el = document.getElementById(id);
     if (!el) return;
-    const top = el.getBoundingClientRect().top + window.pageYOffset - 64;
+    const top = el.getBoundingClientRect().top + window.scrollY - 64;
     window.scrollTo({ top, behavior: 'smooth' });
   };
 
@@ -29,8 +30,10 @@ export default function Nav({ theme, onToggleTheme }) {
       <div className="nav-inner">
         <div className="nav-links">
           {LINKS.map((link, i) => (
-            <span key={link.id} style={{ display: 'inline-flex', gap: 14 }}>
-              <a onClick={() => scrollTo(link.id)}>{link.label}</a>
+            <span key={link.id} className="nav-sep">
+              <a href={`#${link.id}`} onClick={(e) => scrollTo(e, link.id)}>
+                {link.label}
+              </a>
               {i < LINKS.length - 1 && <span aria-hidden>·</span>}
             </span>
           ))}

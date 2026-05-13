@@ -83,6 +83,7 @@ button {
   .nav-inner { padding: 14px var(--page-padding-mobile); font-size: 11px; }
 }
 .nav-links { display: flex; gap: 14px; }
+.nav-sep { display: inline-flex; gap: 14px; }
 .nav-links a {
   cursor: pointer;
   transition: color 200ms ease;
