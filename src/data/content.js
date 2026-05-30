@@ -128,6 +128,5 @@ export const contact = {
     { label: "Gmail", value: "pradyun.bachu@gmail.com", url: "mailto:pradyun.bachu@gmail.com" },
     { label: "GitHub", value: "github.com/pradyunbachu", url: "https://github.com/pradyunbachu" },
     { label: "LinkedIn", value: "linkedin.com/in/pradyun-bachu", url: "https://www.linkedin.com/in/pradyun-bachu/" },
-    { label: "Resume", value: "Bachu_Pradyun_Resume.pdf", url: `${import.meta.env.BASE_URL}Bachu_Pradyun_Resume.pdf` },
   ],
 };
