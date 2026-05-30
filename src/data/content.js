@@ -1,6 +1,6 @@
 export const about = {
   paragraph:
-    "I'm a CS and Economics student at UW–Madison, interested in software engineering, data engineering, and data analytics.",
+    "Hey, I'm Pradyun! I'm a CS and Economics student at UW–Madison, interested in software engineering, data engineering, and data analytics. I'm currently at Allocore building data engineering pipelines in the fintech space. I love learning about new tools and technologies, and I enjoy putting them to work by building all kinds of projects, from data pipelines and APIs to full-stack applications. For me, the best way to really understand a tool is to get hands-on with it, so I'm always looking for an excuse to pick up something new and see what I can create with it.",
 };
 
 export const skills = [
@@ -38,7 +38,7 @@ export const experience = [
   {
     title: "B.S. Computer Science, Economics with Math Emphasis",
     org: "University of Wisconsin–Madison",
-    date: "2024 – 2027 (expected)",
+    date: "2024 – 2028 (expected)",
     location: "Madison, WI",
   },
   {
