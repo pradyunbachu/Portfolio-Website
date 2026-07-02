@@ -14,11 +14,11 @@ export const skills = [
   },
   {
     label: "AI / ML",
-    items: ["Groq API", "Groq Vision", "Deepgram API", "YOLOv8"],
+    items: ["Groq API", "Groq Vision", "Deepgram", "YOLOv8"],
   },
   {
     label: "Data & Cloud",
-    items: ["Airflow", "dbt", "TimescaleDB", "AWS (S3)", "Docker", "Supabase", "Git", "Tableau"],
+    items: ["Databricks", "Airflow", "dbt", "PostgreSQL", "TimescaleDB", "Pentaho", "AWS (S3)", "Docker", "GitHub Actions", "Supabase", "Git", "Tableau"],
   },
 ];
 
@@ -57,13 +57,14 @@ export const experience = [
 
 export const projects = [
   {
-    title: "Pulse",
-    date: "March 2026 – Present",
+    title: "Voice Agent Stress Tester",
+    date: "June 2026 – Present",
+    wip: true,
     description:
-      "An end-to-end financial data pipeline using Airflow to ingest daily OHLCV data for 15 tickers (300+ rows) into an AWS S3 landing zone and TimescaleDB hypertable across 30 days of history. dbt transforms raw data into moving averages, daily returns, z-score anomaly detection flagging 40+ unusual events, and a cross-ticker correlation matrix. Served transformed data via FastAPI to a React dashboard with candlestick charts, anomaly markers, correlation heatmap, and inline sparklines; automated dbt data quality tests run after each DAG to validate schema and detect missing trading days.",
-    tech: ["Python", "Apache Airflow", "TimescaleDB", "dbt", "FastAPI", "React", "AWS (S3)", "Docker"],
+      "A testing harness for evaluating voice agent pipelines under load, built incrementally in staged \"rungs\" from audio fundamentals up to full agent stress scenarios. So far implements the low-level audio layer (16 kHz mono int16 PCM capture, inspection, and WAV I/O) and Deepgram Aura text-to-speech with both batch and low-latency streaming synthesis, structured around a pure/impure split that keeps the core logic unit-testable.",
+    tech: ["Python", "Deepgram", "NumPy", "sounddevice", "soundfile", "pytest"],
     links: [
-      { label: "GitHub", url: "https://github.com/pradyunbachu/FinMarketPipeline" },
+      { label: "GitHub", url: "https://github.com/pradyunbachu/voice-agent-stress-tester" },
     ],
   },
   {
@@ -85,6 +86,16 @@ export const projects = [
     links: [
       { label: "GitHub", url: "https://github.com/pradyunbachu/VoiceP_App" },
       { label: "Live App", url: "https://voxal.vercel.app/" },
+    ],
+  },
+  {
+    title: "Pulse",
+    date: "March 2026 – Present",
+    description:
+      "An end-to-end financial data pipeline using Airflow to ingest daily OHLCV data for 15 tickers (300+ rows) into an AWS S3 landing zone and TimescaleDB hypertable across 30 days of history. dbt transforms raw data into moving averages, daily returns, z-score anomaly detection flagging 40+ unusual events, and a cross-ticker correlation matrix. Served transformed data via FastAPI to a React dashboard with candlestick charts, anomaly markers, correlation heatmap, and inline sparklines; automated dbt data quality tests run after each DAG to validate schema and detect missing trading days.",
+    tech: ["Python", "Apache Airflow", "TimescaleDB", "dbt", "FastAPI", "React", "AWS (S3)", "Docker"],
+    links: [
+      { label: "GitHub", url: "https://github.com/pradyunbachu/FinMarketPipeline" },
     ],
   },
   {
