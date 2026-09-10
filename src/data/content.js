@@ -44,7 +44,7 @@ export const experience = [
   {
     title: "B.S. Computer Science, Economics with Math Emphasis",
     org: "University of Wisconsin–Madison",
-    date: "2024 – 2028 (expected)",
+    date: "2024 – 2028",
     location: "Madison, WI",
   },
   {
